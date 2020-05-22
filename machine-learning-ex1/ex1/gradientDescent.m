@@ -18,10 +18,18 @@ for iter = 1:num_iters
     %
 
 
+    gradient = 1/m * (X' * ((X * theta) - y)); 
 
+    if(iter == 1 || mod(iter, 100) == 0)
+        fprintf("\n gradient for iteration %d:\n", iter)
+        gradient
+    end
 
+    theta = theta - (alpha * gradient);
 
-
+    if(iter == 1 || mod(iter, 100) == 0)
+        fprintf("\n cost of new theta: %d\n", computeCost(X, y, theta))
+    end
 
     % ============================================================
 
