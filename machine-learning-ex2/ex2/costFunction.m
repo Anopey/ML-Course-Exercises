@@ -21,8 +21,7 @@ grad = zeros(size(theta));
 %
 
 
-
-
+grad = 1/m * (X' * (sigmoid(X * theta) - y))
 
 
 
