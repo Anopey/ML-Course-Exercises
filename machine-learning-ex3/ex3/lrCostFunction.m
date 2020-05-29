@@ -38,14 +38,14 @@ grad = zeros(size(theta));
 
 
 
-sigmo = sigmoid(X * theta)
+sigmo = sigmoid(X * theta);
 
-no_1_theta = theta(1:end, 1)
-no_1_theta(1,1) = 0
+no_1_theta = theta(1:end, 1);
+no_1_theta(1,1) = 0;
 
-J = -1/m * (y' * log(sigmo) + (1 - y)' * log(1 - sigmo)) + lambda/(2 * m) * (no_1_theta' * no_1_theta)
+J = -1/m * (y' * log(sigmo) + (1 - y)' * log(1 - sigmo)) + lambda/(2 * m) * (no_1_theta' * no_1_theta);
 
-grad = 1/m * ( X' * (sigmo - y)) + lambda / m * no_1_theta
+grad = 1/m * ( X' * (sigmo - y)) + lambda / m * no_1_theta;
 
 
 
