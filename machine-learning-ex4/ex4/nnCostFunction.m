@@ -72,10 +72,9 @@ y_matrix = eye(num_labels)(y,:)
 %feedforward time
 a2 = sigmoid(X * Theta1');
 a2 = [ones(size(a2,1),1) a2];
-a3 = sigmoid(X * Theta2');
+a3 = sigmoid(a2 * Theta2');
 
-
-
+%cost
 
 
 
