@@ -66,7 +66,7 @@ Theta2_grad = zeros(size(Theta2));
 X = [ones(size(X,1),1) X];
 
 %construct y
-y_matrix = eye(num_labels)(y,:) 
+y_matrix = eye(num_labels)(y,:);
 
 
 %feedforward time
@@ -75,7 +75,8 @@ a2 = [ones(size(a2,1),1) a2];
 a3 = sigmoid(a2 * Theta2');
 
 %cost
-
+J = sum(sum((-y_matrix .* log(a3)) - ((1 - y_matrix) .* log(1 - a3))));
+J = 1/m * J;
 
 
 % -------------------------------------------------------------
