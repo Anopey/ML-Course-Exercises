@@ -62,7 +62,11 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+%add constant
+X = [ones(size(X,1),1) X];
 
+%construct y
+y_matrix = eye(num_labels)(y,:) 
 
 
 
