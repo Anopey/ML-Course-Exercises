@@ -70,7 +70,8 @@ y_matrix = eye(num_labels)(y,:);
 
 
 %feedforward time
-a2 = sigmoid(X * Theta1');
+z2 = X * Theta1';
+a2 = sigmoid(z2);
 a2 = [ones(size(a2,1),1) a2];
 a3 = sigmoid(a2 * Theta2');
 
@@ -81,6 +82,18 @@ J = 1/m * J;
 
 %regularization
 J = J + lambda / 2 / m * (sum(sum(Theta1(:, 2:end) .^2)) + sum(sum(Theta2(:, 2:end) .^2)))
+
+
+%time to calculate gradient!
+
+delta3 = (a3 - y_matrix); %initialize delta 3
+delta2 = (delta3 * Theta2)(:, 2:end) .* sigmoidGradient(z2);
+
+Delta1 = delta2' * X;
+Delta2 = delta3' * a2;
+
+Theta1_grad = (1 / m) * Delta1;
+Theta2_grad = (1 / m) * Delta2;
 
 % -------------------------------------------------------------
 
